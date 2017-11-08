@@ -1,0 +1,10 @@
+/Users/truongpq/Desktop/SHAREit/obj/Debug/netcoreapp2.0/SHAREit.csproj.CoreCompileInputs.cache
+/Users/truongpq/Desktop/SHAREit/obj/Debug/netcoreapp2.0/SHAREit.AssemblyInfoInputs.cache
+/Users/truongpq/Desktop/SHAREit/obj/Debug/netcoreapp2.0/SHAREit.AssemblyInfo.cs
+/Users/truongpq/Desktop/SHAREit/bin/Debug/netcoreapp2.0/SHAREit.deps.json
+/Users/truongpq/Desktop/SHAREit/bin/Debug/netcoreapp2.0/SHAREit.runtimeconfig.json
+/Users/truongpq/Desktop/SHAREit/bin/Debug/netcoreapp2.0/SHAREit.runtimeconfig.dev.json
+/Users/truongpq/Desktop/SHAREit/bin/Debug/netcoreapp2.0/SHAREit.dll
+/Users/truongpq/Desktop/SHAREit/bin/Debug/netcoreapp2.0/SHAREit.pdb
+/Users/truongpq/Desktop/SHAREit/obj/Debug/netcoreapp2.0/SHAREit.dll
+/Users/truongpq/Desktop/SHAREit/obj/Debug/netcoreapp2.0/SHAREit.pdb
