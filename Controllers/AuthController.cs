@@ -23,6 +23,9 @@ namespace SHAREit.Controllers
             _user = user;
         }     
 
+        /// <summary>
+        /// Đăng Nhập
+        /// </summary>
          [HttpPost("signin")]
          public async Task<IActionResult> signin([FromHeader] String Authorization)
          {
@@ -42,6 +45,9 @@ namespace SHAREit.Controllers
              }
          }
 
+        /// <summary>
+        /// Đăng Ký
+        /// </summary>
          [HttpPost("signup")]
          public async Task<IActionResult> signup([FromHeader] String Authorization, [FromBody] UserRequestModel userRequestModel) {
              try {
@@ -74,6 +80,9 @@ namespace SHAREit.Controllers
              }
          }
 
+        /// <summary>
+        /// Lấy thông tin cá nhân
+        /// </summary>
         [Authorize]
          [HttpGet("profile")]
          public async Task<IActionResult> getProfile() {
@@ -97,6 +106,57 @@ namespace SHAREit.Controllers
              }
          }
 
+        /// <summary>
+        /// Lấy thông tin cá nhân theo username
+        /// </summary>
+         [Authorize]
+         [HttpGet("profilebyusername")]
+         public async Task<IActionResult> getProfileByUsername(string username) {
+             try {
+                 User user = await _user.FindByUsername(username);
+                 if (user == null) {
+                    return NotFound(new Respone(404, "NotFound", null));
+                 }
+                 var dict = new Dictionary<string, object>();
+                 dict.Add("username", user.username);
+                 dict.Add("address", user.address);
+                 dict.Add("phone", user.phone);
+                 dict.Add("email", user.email);
+                 dict.Add("lat", user.lat);
+                 dict.Add("lon", user.lon);
+                return Ok(new Respone(200, "ok", dict));
+             } catch {
+                 return BadRequest(new Respone(400, "Failed", null));
+             }
+         }
+
+        /// <summary>
+        /// Lấy thông tin cá nhân theo ID
+        /// </summary>
+         [Authorize]
+         [HttpGet("profilebyid")]
+         public async Task<IActionResult> getProfileByID(int id) {
+             try {
+                 User user = await _user.Get(id);
+                 if (user == null) {
+                    return NotFound(new Respone(404, "NotFound", null));
+                 }
+                 var dict = new Dictionary<string, object>();
+                 dict.Add("username", user.username);
+                 dict.Add("address", user.address);
+                 dict.Add("phone", user.phone);
+                 dict.Add("email", user.email);
+                 dict.Add("lat", user.lat);
+                 dict.Add("lon", user.lon);
+                return Ok(new Respone(200, "ok", dict));
+             } catch {
+                 return BadRequest(new Respone(400, "Failed", null));
+             }
+         }
+
+        /// <summary>
+        /// Chỉnh sửa thông tin cá nhân
+        /// </summary>
         [Authorize]
          [HttpGet("profile/edit")]
          public async Task<IActionResult> editProfile(string address, string phone, string email, float lat, float lon)

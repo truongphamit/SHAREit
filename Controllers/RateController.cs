@@ -25,6 +25,9 @@ namespace SHAREit.Controllers
             this._rateRepository = _rateRepository;
         }
 
+        /// <summary>
+        /// Thêm đánh giá sách
+        /// </summary>
         [HttpGet("add")]
         public async Task<IActionResult> add(int book_id, int star, string review)
         {
@@ -58,6 +61,9 @@ namespace SHAREit.Controllers
             }
         }
 
+        /// <summary>
+        /// Sửa đánh giá sách
+        /// </summary>
         [HttpGet("edit")]
         public async Task<IActionResult> edit(int rate_id, int star, string review)
         {
@@ -84,6 +90,9 @@ namespace SHAREit.Controllers
             }
         }
 
+        /// <summary>
+        /// Lấy đánh giá sách
+        /// </summary>
         [HttpGet("get")]
         public async Task<IActionResult> get(int rate_id)
         {
@@ -97,6 +106,9 @@ namespace SHAREit.Controllers
             }
         }
 
+        /// <summary>
+        /// Lấy toàn bộ đánh giá của sách
+        /// </summary>
         [HttpGet("list")]
         public async Task<IActionResult> findByBookcase(int book_id)
         {

@@ -28,6 +28,9 @@ namespace SHAREit.Controllers
             this._borrowRepository = _borrowRepository;
         } 
 
+        /// <summary>
+        /// Thêm sách vào tủ sách
+        /// </summary>
         [HttpGet("add")]
         public async Task<IActionResult> add(string sku) 
         {
@@ -55,6 +58,9 @@ namespace SHAREit.Controllers
             }
         }
 
+        /// <summary>
+        /// Xoá sách khỏi tủ sách
+        /// </summary>
         [HttpGet("delete")]
         public async Task<IActionResult> delete(int bookcase_id)
         {
@@ -78,6 +84,9 @@ namespace SHAREit.Controllers
             }
         } 
 
+        /// <summary>
+        /// Lấy thông tin sách trong tủ
+        /// </summary>
         [HttpGet("get")]
         public async Task<IActionResult> get(int bookcase_id) 
         {
@@ -106,6 +115,9 @@ namespace SHAREit.Controllers
             }
         }
 
+        /// <summary>
+        /// Lấy thông tin toàn bộ sách trong tủ
+        /// </summary>
         [HttpGet("list")]
         public async Task<IActionResult> getAll()
         {
@@ -127,27 +139,40 @@ namespace SHAREit.Controllers
             }
         }
 
+        /// <summary>
+        /// Xem thông tin tủ sách của người dùng
+        /// </summary>
         [HttpGet("findbookbyusername")]
         public async Task<IActionResult> findBookByUsername(string username)
         {
             try {
-                
                 return Ok(new Respone(200, "ok", await _bookcaseRepository.FindByUsername(username)));
             } catch (Exception e) {
                 return BadRequest(new Respone(400, "Failed", null)); 
             }
         }
 
+        /// <summary>
+        /// Lấy danh sách các sách đã mượn
+        /// </summary>
         [HttpGet("borrowbook")]
         public async Task<IActionResult> getBorrowBooks() {
             try {
-                
-                return Ok(new Respone(200, "ok", null));
+                var username = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+                 User user = await _userRepository.FindByUsername(username);
+                 if (user == null) {
+                    return NotFound(new Respone(404, "Not Found", null));
+                 }
+
+                return Ok(new Respone(200, "ok",await _borrowRepository.GetBorrowBooks(user.user_id)));
             } catch (Exception e) {
                 return BadRequest(new Respone(400, "Failed", null)); 
             }
         }
 
+        /// <summary>
+        /// Lấy danh sách các sách cho mượn
+        /// </summary>
         [HttpGet("loanbook")]
         public async Task<IActionResult> getLoanBooks() {
             try {
@@ -156,7 +181,6 @@ namespace SHAREit.Controllers
                  if (user == null) {
                     return NotFound(new Respone(404, "Not Found", null));
                  }
-
 
                 return Ok(new Respone(200, "ok",await _borrowRepository.GetLoanBooks(user.user_id)));
             } catch (Exception e) {

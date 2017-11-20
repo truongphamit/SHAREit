@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SHAREit</name>
+    </assembly>
+    <members>
+        <member name="M:SHAREit.Controllers.AuthController.signin(System.String)">
+            <summary>
+            Đăng Nhập
+            </summary>
+        </member>
+        <member name="M:SHAREit.Controllers.AuthController.signup(System.String,SHAREit.Models.UserRequestModel)">
+            <summary>
+            Đăng Ký
+            </summary>
+        </member>
+        <member name="M:SHAREit.Controllers.AuthController.getProfile">
+            <summary>
+            Lấy thông tin cá nhân
+            </summary>
+        </member>
+        <member name="M:SHAREit.Controllers.AuthController.getProfileByUsername(System.String)">
+            <summary>
+            Lấy thông tin cá nhân theo username
+            </summary>
+        </member>
+        <member name="M:SHAREit.Controllers.AuthController.getProfileByID(System.Int32)">
+            <summary>
+            Lấy thông tin cá nhân theo ID
+            </summary>
+        </member>
+        <member name="M:SHAREit.Controllers.AuthController.editProfile(System.String,System.String,System.String,System.Single,System.Single)">
+            <summary>
+            Chỉnh sửa thông tin cá nhân
+            </summary>
+        </member>
+        <member name="M:SHAREit.Controllers.BookcaseController.add(System.String)">
+            <summary>
+            Thêm sách vào tủ sách
+            </summary>
+        </member>
+        <member name="M:SHAREit.Controllers.BookcaseController.delete(System.Int32)">
+            <summary>
+            Xoá sách khỏi tủ sách
+            </summary>
+        </member>
+        <member name="M:SHAREit.Controllers.BookcaseController.get(System.Int32)">
+            <summary>
+            Lấy thông tin sách trong tủ
+            </summary>
+        </member>
+        <member name="M:SHAREit.Controllers.BookcaseController.getAll">
+            <summary>
+            Lấy thông tin toàn bộ sách trong tủ
+            </summary>
+        </member>
+        <member name="M:SHAREit.Controllers.BookcaseController.findBookByUsername(System.String)">
+            <summary>
+            Xem thông tin tủ sách của người dùng
+            </summary>
+        </member>
+        <member name="M:SHAREit.Controllers.BookcaseController.getBorrowBooks">
+            <summary>
+            Lấy danh sách các sách đã mượn
+            </summary>
+        </member>
+        <member name="M:SHAREit.Controllers.BookcaseController.getLoanBooks">
+            <summary>
+            Lấy danh sách các sách cho mượn
+            </summary>
+        </member>
+        <member name="M:SHAREit.Controllers.BookController.getAll">
+            <summary>
+            Lấy toàn bộ thông tin sách
+            </summary>
+        </member>
+        <member name="M:SHAREit.Controllers.BookController.add(SHAREit.Models.Book)">
+            <summary>
+            Thêm sách vào kho
+            </summary>
+        </member>
+        <member name="M:SHAREit.Controllers.BookController.update(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Chỉnh sửa thông tin sách
+            </summary>
+        </member>
+        <member name="M:SHAREit.Controllers.BookController.delete(System.Int32)">
+            <summary>
+            Xóa sách
+            </summary>
+        </member>
+        <member name="M:SHAREit.Controllers.BookController.get(System.Int32)">
+            <summary>
+            Lấy thông tin sách
+            </summary>
+        </member>
+        <member name="M:SHAREit.Controllers.BookController.findBySKU(System.String)">
+            <summary>
+            Lấy thông tin sách theo SKU
+            </summary>
+        </member>
+        <member name="M:SHAREit.Controllers.BookController.findUserByBookID(System.Int32)">
+            <summary>
+            Lấy toàn bộ sách của user
+            </summary>
+        </member>
+        <member name="M:SHAREit.Controllers.BookController.findUserByBookSKU(System.String)">
+            <summary>
+            Tìm user có sách với SKU
+            </summary>
+        </member>
+        <member name="M:SHAREit.Controllers.BookController.search(System.String,System.Int32,System.Int32)">
+            <summary>
+            Tìm kiếm sách
+            </summary>
+        </member>
+        <member name="M:SHAREit.Controllers.BorrowController.borrow(System.String)">
+            <summary>
+            Mượn sách
+            </summary>
+        </member>
+        <member name="M:SHAREit.Controllers.BorrowController.returnBook(System.String)">
+            <summary>
+            Trả sách
+            </summary>
+        </member>
+        <member name="M:SHAREit.Controllers.BorrowController.getBorrowCode(System.Int32)">
+            <summary>
+            Lấy mã cho mượn sách
+            </summary>
+        </member>
+        <member name="M:SHAREit.Controllers.BorrowController.getReturnCode(System.Int32)">
+            <summary>
+            Lấy mã trả sách
+            </summary>
+        </member>
+        <member name="M:SHAREit.Controllers.RateBookcaseController.add(System.Int32,System.Int32,System.String)">
+            <summary>
+            Thêm đánh giá cho bookcase
+            </summary>
+        </member>
+        <member name="M:SHAREit.Controllers.RateBookcaseController.edit(System.Int32,System.Int32,System.String)">
+            <summary>
+            Sửa đánh giá cho bookcase
+            </summary>
+        </member>
+        <member name="M:SHAREit.Controllers.RateBookcaseController.get(System.Int32)">
+            <summary>
+            Lấy thông tin đánh giá bookcase
+            </summary>
+        </member>
+        <member name="M:SHAREit.Controllers.RateBookcaseController.findByBookcase(System.Int32)">
+            <summary>
+            Lấy toàn bộ đánh giá của bookcase
+            </summary>
+        </member>
+        <member name="M:SHAREit.Controllers.RateController.add(System.Int32,System.Int32,System.String)">
+            <summary>
+            Thêm đánh giá sách
+            </summary>
+        </member>
+        <member name="M:SHAREit.Controllers.RateController.edit(System.Int32,System.Int32,System.String)">
+            <summary>
+            Sửa đánh giá sách
+            </summary>
+        </member>
+        <member name="M:SHAREit.Controllers.RateController.get(System.Int32)">
+            <summary>
+            Lấy đánh giá sách
+            </summary>
+        </member>
+        <member name="M:SHAREit.Controllers.RateController.findByBookcase(System.Int32)">
+            <summary>
+            Lấy toàn bộ đánh giá của sách
+            </summary>
+        </member>
+    </members>
+</doc>

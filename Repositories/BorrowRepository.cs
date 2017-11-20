@@ -22,16 +22,19 @@ namespace SHAREit.Repositories
                             join bookcase in _context.bookcase on borrow.bookcase_id equals bookcase.bookcase_id
                             join book in _context.book on bookcase.book_id equals book.book_id
                             join user in _context.user on bookcase.user_id equals user.user_id 
-                            where bookcase.user_id == user_id
+                            where borrow.user_id_borrow == user_id && borrow.return_date == null
                             select new 
                             {
-                                user.username,
-                                user.address,
-                                user.email,
-                                user.phone,
                                 bookcase.bookcase_id,
+                                bookcase.user_id,
                                 book.title,
-                                book.author
+                                book.author,
+                                book.book_id,
+                                book.sku,
+                                book.image,
+                                book.company,
+                                book.sub_description,
+                                book.description
                             }; 
             return result;
         }
@@ -42,16 +45,19 @@ namespace SHAREit.Repositories
                             join bookcase in _context.bookcase on borrow.bookcase_id equals bookcase.bookcase_id
                             join book in _context.book on bookcase.book_id equals book.book_id
                             join user in _context.user on bookcase.user_id equals user.user_id 
-                            where bookcase.user_id == user_id && user.user_id == borrow.user_id_borrow
+                            where bookcase.user_id == user_id && borrow.return_date.Equals(null)
                             select new 
                             {
-                                user.username,
-                                user.address,
-                                user.email,
-                                user.phone,
+                                borrow.user_id_borrow,
                                 bookcase.bookcase_id,
                                 book.title,
-                                book.author
+                                book.author,
+                                book.book_id,
+                                book.sku,
+                                book.image,
+                                book.company,
+                                book.sub_description,
+                                book.description
                             }; 
             return result;
         }

@@ -20,6 +20,9 @@ namespace SHAREit.Controllers
             _book = book;
         }     
 
+        /// <summary>
+        /// Lấy toàn bộ thông tin sách
+        /// </summary>
         [Authorize]
         [HttpGet("list")]
         public async Task<IActionResult> getAll()
@@ -35,6 +38,9 @@ namespace SHAREit.Controllers
            }
         }
 
+        /// <summary>
+        /// Thêm sách vào kho
+        /// </summary>
         [Authorize(Roles = "admin")]
         [HttpPost("add")]
         public async Task<IActionResult> add([FromBody] Book book)
@@ -47,6 +53,9 @@ namespace SHAREit.Controllers
             }
         }
 
+        /// <summary>
+        /// Chỉnh sửa thông tin sách
+        /// </summary>
         [Authorize(Roles = "admin")]
         [HttpPut("update")]
         public async Task<IActionResult> update(int book_id, string sku, string title, string sub_description, string description, string author, string company, string image) {
@@ -67,6 +76,9 @@ namespace SHAREit.Controllers
             } 
         }
 
+        /// <summary>
+        /// Xóa sách
+        /// </summary>
         [Authorize(Roles = "admin")]
         [HttpDelete("delete")]
         public async Task<IActionResult> delete(int book_id) {
@@ -80,6 +92,9 @@ namespace SHAREit.Controllers
             }
         }
 
+        /// <summary>
+        /// Lấy thông tin sách
+        /// </summary>
         [Authorize]
         [HttpGet("get")]
         public async Task<IActionResult> get(int book_id) {
@@ -92,6 +107,9 @@ namespace SHAREit.Controllers
             }
         }
 
+        /// <summary>
+        /// Lấy thông tin sách theo SKU
+        /// </summary>
         [Authorize]
         [HttpGet("findbysku")]
         public async Task<IActionResult> findBySKU(string sku) {
@@ -104,6 +122,9 @@ namespace SHAREit.Controllers
             }
         }
 
+        /// <summary>
+        /// Lấy toàn bộ sách của user
+        /// </summary>
         [Authorize]
         [HttpGet("finduserbybook")]
         public async Task<IActionResult> findUserByBookID(int book_id) {
@@ -115,6 +136,9 @@ namespace SHAREit.Controllers
             }
         }
 
+        /// <summary>
+        /// Tìm user có sách với SKU
+        /// </summary>
         [Authorize]
         [HttpGet("finduserbysku")]
         public async Task<IActionResult> findUserByBookSKU(string sku) {
@@ -126,6 +150,9 @@ namespace SHAREit.Controllers
             }
         }
 
+        /// <summary>
+        /// Tìm kiếm sách
+        /// </summary>
         [Authorize]
         [HttpGet("search")]
         public async Task<IActionResult> search(string title, int limit, int page) {

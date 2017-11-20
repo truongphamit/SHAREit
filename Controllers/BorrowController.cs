@@ -24,6 +24,9 @@ namespace SHAREit.Controllers
             this._borrowRepository = _borrowRepository;
         }
 
+        /// <summary>
+        /// Mượn sách
+        /// </summary>
         [HttpGet("borrow")]
         public async Task<IActionResult> borrow(String code)
         {
@@ -58,6 +61,9 @@ namespace SHAREit.Controllers
             }
         }
 
+        /// <summary>
+        /// Trả sách
+        /// </summary>
         [HttpGet("return")]
         public async Task<IActionResult> returnBook(string code)
         {
@@ -85,6 +91,9 @@ namespace SHAREit.Controllers
             }
         }
 
+        /// <summary>
+        /// Lấy mã cho mượn sách
+        /// </summary>
         [HttpGet("borrowcode")]
         public async Task<IActionResult> getBorrowCode(int bookcase_id)
         {
@@ -111,6 +120,9 @@ namespace SHAREit.Controllers
             }
         }
 
+        /// <summary>
+        /// Lấy mã trả sách
+        /// </summary>
         [HttpGet("returncode")]
         public async Task<IActionResult> getReturnCode(int bookcase_id)
         {
